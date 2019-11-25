@@ -28,5 +28,8 @@
     },
     "author": "",
     "license": "ISC"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^2.3.0"
   }
 }

@@ -1,9 +1,33 @@
 const router = require("express").Router()
 const db = require('../db')
 
-router.post("/", (req, res, next) => {
+
+
+router.get("/posts/:slug", (req, res, next) =>{
+  const catId = req.params.catId
+
+  const sql = `
+  SELECT * FROM listing WHERE slug = ?
+  `
+  db.query(sql, [slug], (err, results, fields) =>{
+    res.json(results)
+  })
+})
+
+router.get("/post/:postId", (req, res, next) =>{
+  const postId = req.params.postId
+
+  const sql = `
+  SELECT * FROM listing WHERE id = ?
+  `
+  db.query(sql, [postId], (err, results, fields) =>{
+    res.json(results)
+  })
+})
+
+router.post("/posts", (req, res, next) => {
     const title = req.body.title
-    const categoryId = req.body.ids
+    const categoryId = req.body.all
     const price = req.body.price
     const city = req.body.cityorneighborhood
     const descr = req.body.description
@@ -14,9 +38,12 @@ router.post("/", (req, res, next) => {
     VALUES (?, ?, ?, ?, ?, ?)
     `
     db.query(post, [title, categoryId, price, city, descr, email], (err, results, fields) =>{
-      console.log("error",err)
-      console.log(results)
-      res.json(results)
+      if (err) {
+        throw new Error("WHOOPS")
+      }else{
+        console.log(results)
+        res.json(results)
+      }
     })
 })
 

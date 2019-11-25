@@ -3,7 +3,7 @@ import { useAccounts } from '../redux/ducks/users'
 
 
 export default function CreatePost(props){
-const { makepost, ids} = useAccounts()
+const { makepost, all} = useAccounts()
 const [title, setTitle] = useState('')
 const [description, setDescription] = useState('')
 const [price, setPrice] = useState('')
@@ -15,14 +15,13 @@ const [email, setEmail] = useState('')
 function handleSubmit(e){
     e.preventDefault()
     return(
-            makepost(title, description, price, location, email, ids.id ),
+            makepost(title, all, description, price, location, email),
             setTitle(''),
             setDescription(''),
             setPrice(''),
             setLocation(''),
             setEmail('')
         )
-        
 }
 
     return(
@@ -32,7 +31,7 @@ function handleSubmit(e){
                 <div>
                     <label htmlFor="radio">Category:
                         <div>
-                            {ids.map(item =>(
+                            {all.map(item =>(
                             <div key={item.id}>
                                 <label htmlFor='radio'>{item.name}:</label>
                                     <input 

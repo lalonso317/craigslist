@@ -3,7 +3,7 @@ const db = require('../db')
 
 router.get("/", (req, res, next) => {
     const sub1 = `
-    Select id, parent_id, name
+    Select id, parent_id, name, slug
     from categories
     where parent_id is not null
     `
