@@ -41,7 +41,7 @@ const getPosted = (slug) =>{
     }
   }
 // GET ALL THE POSTS
-export function useallPosts(slug){
+export function useAllPosts(slug){
     const posts = useSelector(appState => appState.postState.posts)
     const dispatch = useDispatch()
 
@@ -53,7 +53,7 @@ export function useallPosts(slug){
   }
   
   // SINGLE POST 
-  export function usesinglePost(postId){
+  export function useAinglePost(postId){
   const currentPost = useSelector(appState => appState.postState.currentPost) 
   const dispatch = useDispatch()
   

@@ -1,12 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import { useallPosts } from '../redux/ducks/post'
+import { useAllPosts } from '../redux/ducks/post'
 
 export default function Posts(props){
-const {posts} = useallPosts(props.match.params.slug)
+const {posts} = useAllPosts(props.match.params.slug)
 const id = props.match.params.id
 const slug = props.match.params.slug
-console.log(props, id, slug)
+
     return (
         <div>
              <h2>Hello World</h2>

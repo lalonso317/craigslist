@@ -92,7 +92,7 @@ export function useAccounts() {
     dispatch(getUsers())
     dispatch(subCats())
   }, [dispatch])
-  return { cats, all, sub, subOne, subTwo, subThree, subFour, subFive, subSix, subSeven, makepost, getUsers }
+  return { cats, all, sub, subOne, subTwo, subThree, subFour, subFive, subSix, subSeven, getUsers }
 }
 
 
